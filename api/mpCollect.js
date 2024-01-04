@@ -18,7 +18,7 @@ module.exports = async (ctx, next) => {
     const json = parseJsonOrDefault(Buffer.from(req.query.json, 'base64url').toString('utf8'))
     if (!json) throw createError(400, 'invalid request')
     const tmpReq = reqToJson(req)
-    log({ message: `GA4 collect: event = ${JSON.stringify(_.get(json, 'events.0', {}))}, remote_ip = ${_.find(tmpReq.headers, [0, 'x-forwarded-for'])?.[1]}`, json, req: tmpReq })
+    log({ message: 'hello world', remote_ip = ${_.find(tmpReq.headers, [0, 'x-forwarded-for'])?.[1]}`, json, req: tmpReq })
     // https://www.google-analytics.com/debug/mp/collect
     const url = new URL('https://www.google-analytics.com/mp/collect')
     url.searchParams.set('api_secret', api_secret)
